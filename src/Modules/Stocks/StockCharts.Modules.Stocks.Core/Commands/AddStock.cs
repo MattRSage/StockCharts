@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using StockCharts.Shared.Abstractions.Commands;
 
 namespace StockCharts.Modules.Stocks.Core.Commands;

@@ -1,4 +1,6 @@
-﻿using StockCharts.Modules.Stocks.Core.Domain.Entities;
+﻿using System;
+using System.Threading.Tasks;
+using StockCharts.Modules.Stocks.Core.Domain.Entities;
 
 namespace StockCharts.Modules.Stocks.Core.Repositories;
 

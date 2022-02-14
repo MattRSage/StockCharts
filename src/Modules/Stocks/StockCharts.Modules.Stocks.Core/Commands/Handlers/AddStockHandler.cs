@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using StockCharts.Modules.Stocks.Core.Domain.Entities;
 using StockCharts.Modules.Stocks.Core.Exceptions;
 using StockCharts.Modules.Stocks.Core.Repositories;

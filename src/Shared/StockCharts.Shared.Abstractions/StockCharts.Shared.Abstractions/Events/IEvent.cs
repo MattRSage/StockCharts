@@ -1,6 +1,6 @@
 ﻿using StockCharts.Shared.Abstractions.Messaging;
 
-namespace Inflow.Shared.Abstractions.Events;
+namespace StockCharts.Shared.Abstractions.Events;
 
 // Marker
 public interface IEvent : IMessage

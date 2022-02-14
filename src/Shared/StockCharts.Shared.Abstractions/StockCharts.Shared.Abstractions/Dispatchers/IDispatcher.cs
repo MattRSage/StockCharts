@@ -1,5 +1,5 @@
-using Inflow.Shared.Abstractions.Events;
 using StockCharts.Shared.Abstractions.Commands;
+using StockCharts.Shared.Abstractions.Events;
 using StockCharts.Shared.Abstractions.Queries;
 
 namespace StockCharts.Shared.Abstractions.Dispatchers;

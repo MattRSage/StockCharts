@@ -1,19 +1,22 @@
-﻿namespace StockCharts.Modules.Stocks.Core;
+﻿using System.Runtime.CompilerServices;
+using Microsoft.Extensions.DependencyInjection;
+using StockCharts.Modules.Stocks.Core.DAL;
+using StockCharts.Modules.Stocks.Core.DAL.Repositories;
+using StockCharts.Modules.Stocks.Core.Repositories;
+using StockCharts.Shared.Infrastructure.Postgres;
+
+
+[assembly: InternalsVisibleTo("StockCharts.Modules.Stocks.Api")]
+
+namespace StockCharts.Modules.Stocks.Core;
 
 internal static class Extensions
 {
     public static IServiceCollection AddCore(this IServiceCollection services)
     {
-        var registrationOptions = services.GetOptions<RegistrationOptions>("users:registration");
-        services.AddSingleton(registrationOptions);
-
         return services
-            .AddSingleton<IUserRequestStorage, UserRequestStorage>()
-            .AddScoped<IRoleRepository, RoleRepository>()
-            .AddScoped<IUserRepository, UserRepository>()
-            .AddPostgres<UsersDbContext>()
-            .AddOutbox<UsersDbContext>()
-            .AddUnitOfWork<UsersUnitOfWork>()
-            .AddInitializer<UsersInitializer>();
+            .AddScoped<IStockRepository, StockRepository>()
+            .AddPostgres<StocksDbContext>()
+            .AddUnitOfWork<StocksUnitOfWork>();
     }
 }

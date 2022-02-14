@@ -1,4 +1,6 @@
-﻿namespace StockCharts.Modules.Stocks.Core.DTO;
+﻿using System;
+
+namespace StockCharts.Modules.Stocks.Core.DTO;
 
 public class StockDto
 {

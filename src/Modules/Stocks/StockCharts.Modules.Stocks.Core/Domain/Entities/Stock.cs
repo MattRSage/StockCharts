@@ -1,8 +1,10 @@
-﻿namespace StockCharts.Modules.Stocks.Core.Domain.Entities;
+﻿using System;
+
+namespace StockCharts.Modules.Stocks.Core.Domain.Entities;
 
 internal class Stock
 {
-    public Guid Id { get; }
+    public Guid Id { get; private set; }
     public string Name { get; }
     public string Symbol { get; }
     public decimal Price { get; set; }
