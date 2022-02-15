@@ -62,10 +62,7 @@ public static class Extensions
         var options = services.GetOptions<PostgresOptions>("postgres");
         services.AddSingleton(options);
         services.AddSingleton(new UnitOfWorkTypeRegistry());
-            
-        // Temporary fix for EF Core issue related to https://github.com/npgsql/efcore.pg/issues/2000
-        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-
+        
         return services;
     }
 
@@ -80,7 +77,7 @@ public static class Extensions
     public static IServiceCollection AddPostgres<T>(this IServiceCollection services) where T : DbContext
     {
         var options = services.GetOptions<PostgresOptions>("postgres");
-        services.AddDbContext<T>(x => x.UseNpgsql(options.ConnectionString));
+        services.AddDbContext<T>(x => x.UseSqlServer(options.ConnectionString));
 
         return services;
     }

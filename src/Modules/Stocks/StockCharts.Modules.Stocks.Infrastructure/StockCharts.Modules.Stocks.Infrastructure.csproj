@@ -8,8 +8,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\StockCharts.Modules.Stocks.Application\StockCharts.Modules.Stocks.Application.csproj" />
-      <ProjectReference Include="..\StockCharts.Modules.Stocks.Core\StockCharts.Modules.Stocks.Core.csproj" />
-      <ProjectReference Include="..\StockCharts.Modules.Stocks.Infrastructure\StockCharts.Modules.Stocks.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

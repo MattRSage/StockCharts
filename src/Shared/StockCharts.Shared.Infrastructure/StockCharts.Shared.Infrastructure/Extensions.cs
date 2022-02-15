@@ -10,11 +10,15 @@ using StockCharts.Shared.Abstractions.Dispatchers;
 using StockCharts.Shared.Abstractions.Modules;
 using StockCharts.Shared.Infrastructure.Api;
 using StockCharts.Shared.Infrastructure.Commands;
+using StockCharts.Shared.Infrastructure.Contexts;
+using StockCharts.Shared.Infrastructure.Dispatchers;
+using StockCharts.Shared.Infrastructure.Events;
 using StockCharts.Shared.Infrastructure.Messaging;
 using StockCharts.Shared.Infrastructure.Modules;
 using StockCharts.Shared.Infrastructure.Postgres;
 using StockCharts.Shared.Infrastructure.Queries;
 using StockCharts.Shared.Infrastructure.Serialization;
+using StockCharts.Shared.Infrastructure.Services;
 
 namespace StockCharts.Shared.Infrastructure;
 
@@ -67,10 +71,14 @@ public static class Extensions
         services.AddSingleton<IJsonSerializer, SystemTextJsonSerializer>();
         services.AddModuleInfo(modules);
         services.AddModuleRequests(assemblies);
-        services.AddMessaging();
+        services.AddContext();
         services.AddCommands(assemblies);
         services.AddQueries(assemblies);
+        services.AddEvents(assemblies);
+        services.AddMessaging();
+        services.AddSingleton<IDispatcher, InMemoryDispatcher>();
         services.AddPostgres();
+        services.AddHostedService<DbContextAppInitializer>();
         services.AddControllers()
             .ConfigureApplicationPartManager(manager =>
             {
@@ -108,6 +116,7 @@ public static class Extensions
             reDoc.SpecUrl("/swagger/v1/swagger.json");
             reDoc.DocumentTitle = "Modular API";
         });
+        app.UseContext();
         app.UseRouting();
         app.UseAuthorization();
 
