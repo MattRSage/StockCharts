@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using StockCharts.Modules.Stocks.Core.Exchanges.Entities;
 using StockCharts.Modules.Stocks.Core.Stocks.Entities;
 
 namespace StockCharts.Modules.Stocks.Infrastructure.EF;
@@ -6,6 +7,7 @@ namespace StockCharts.Modules.Stocks.Infrastructure.EF;
 internal class StocksDbContext : DbContext
 {
     public DbSet<Stock> Stocks { get; set; }
+    public DbSet<Exchange> Exchanges { get; set; }
 
     public StocksDbContext(DbContextOptions<StocksDbContext> options) : base(options)
     {

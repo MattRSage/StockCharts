@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StockCharts.Modules.Stocks.Application.Stocks.Commands;
+using StockCharts.Modules.Stocks.Application.Stocks.Commands.AddStock;
 using StockCharts.Modules.Stocks.Application.Stocks.DTO;
 using StockCharts.Modules.Stocks.Application.Stocks.Queries;
 using StockCharts.Shared.Abstractions.Contexts;

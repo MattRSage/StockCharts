@@ -6,4 +6,5 @@ namespace StockCharts.Modules.Stocks.Core.Exchanges.Repositories;
 internal interface IExchangeRepository
 {
     Task<Exchange> GetAsync(string symbol);
+    Task AddAsync(Exchange exchange);
 }

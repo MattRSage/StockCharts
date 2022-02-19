@@ -5,7 +5,7 @@ using StockCharts.Modules.Stocks.Core.Stocks.Exceptions;
 using StockCharts.Modules.Stocks.Core.Stocks.Repositories;
 using StockCharts.Shared.Abstractions.Commands;
 
-namespace StockCharts.Modules.Stocks.Application.Stocks.Commands.Handlers;
+namespace StockCharts.Modules.Stocks.Application.Stocks.Commands.AddStock;
 
 internal sealed class AddStockHandler : ICommandHandler<AddStock>
 {
@@ -21,9 +21,11 @@ internal sealed class AddStockHandler : ICommandHandler<AddStock>
         _exchangeRepository = exchangeRepository;
     }
 
-    public async Task HandleAsync(AddStock command, CancellationToken cancellationToken = default)
+    public async Task HandleAsync(Commands.AddStock.AddStock command, CancellationToken cancellationToken = default)
     {
-        var exchange = await _exchangeRepository.GetAsync(command.ExchangeSymbol);
+        var exchangeSymbol = command.ExchangeSymbol.ToUpperInvariant();
+        
+        var exchange = await _exchangeRepository.GetAsync(exchangeSymbol);
         
         var symbol = command.Symbol.ToUpperInvariant();
 

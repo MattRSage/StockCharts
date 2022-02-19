@@ -1,5 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.Extensions.DependencyInjection;
+using StockCharts.Modules.Stocks.Core.Exchanges.Repositories;
 using StockCharts.Modules.Stocks.Core.Stocks.Repositories;
 using StockCharts.Modules.Stocks.Infrastructure.EF;
 using StockCharts.Modules.Stocks.Infrastructure.EF.Repositories;
@@ -15,6 +16,7 @@ internal static class Extensions
     {
         return services
             .AddScoped<IStockRepository, StockRepository>()
+            .AddScoped<IExchangeRepository, ExchangeRepository>()
             .AddPostgres<StocksDbContext>()
             .AddUnitOfWork<StocksUnitOfWork>();;
     }

@@ -5,6 +5,10 @@ namespace StockCharts.Modules.Stocks.Core.Stocks.Types;
 
 public class StockId : TypeId
 {
+    public StockId() : this(Guid.NewGuid())
+    {
+    }
+    
     public StockId(Guid value) : base(value)
     {
     }

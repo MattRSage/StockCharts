@@ -9,6 +9,7 @@ internal class Exchange
 {
     public ExchangeId Id { get; private set; }
     public string Name { get; private set; }
+    public string Symbol { get; private set; }
     public bool IsActive { get; private set; }
     public DateTime CreatedAt { get; private set; }
 
@@ -16,11 +17,12 @@ internal class Exchange
     {
     }
 
-    public Exchange(ExchangeId id, string name, DateTime createdAt)
+    public Exchange(ExchangeId id, string name, string symbol, DateTime createdAt)
     {
         Id = id;
         Name = name;
         IsActive = true;
+        Symbol = symbol;
         CreatedAt = createdAt;
     }
 
